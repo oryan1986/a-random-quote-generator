@@ -67,7 +67,6 @@ const print = message => {
 
 //Building the quotes with this printQuote function
 const printQuote = () => {
-  // get a random object and store it in the quote variable.
   let quote = getRandomQuote();
   // build the HTML.
   let html = '';
