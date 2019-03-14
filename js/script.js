@@ -3,8 +3,6 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
-
 
 /*** 
   Create the array of quote objects and name it `quotes`.
@@ -47,7 +45,7 @@ const quotes = [
   }
 ]
 
-console.log(quotes);
+
 
 
 //generating a random quote function
@@ -70,7 +68,6 @@ const printQuote = () => {
   let quote = getRandomQuote();
   // build the HTML.
   let html = '';
-  html += `<div id="quote-box">`
   html += `<p class="quote"> ${quote.quote} </p>`;
   html += `<p class="source"> ${quote.source} `;
   //check to see if there a citation and year
@@ -82,7 +79,6 @@ const printQuote = () => {
     html += `<span class="year"> ${quote.year}</span>`;
   }
   html += `</p>`;
-  html += `</div>`;
   //print the quote to screen.
   print(html);
 }
@@ -95,5 +91,11 @@ const printQuote = () => {
   function. So do not make any changes to the line of code below this 
   comment.
 ***/
+let newQuote;
+const changeQuote = () => {
+  newQuote = setInterval(printQuote, 20000);
+}
+
+
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
