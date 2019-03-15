@@ -44,9 +44,34 @@ const quotes = [
     year: ''
   }
 ]
+const button = document.getElementById('loadQuote');
+let newQuote;
 
 
+//Having the page to auto-refresh every 20 seconds.
+const changeQuote = () => {
+  newQuote = setInterval(printQuote, 20000);
+}
 
+/*
+credits:
+https://www.youtube.com/watch?v=z4OyThVIr5U
+
+*/
+const colorValue = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+
+const randomBackgroundColor = () => {
+  document.body.style.backgroundColor = '#' + getRandomColor();
+}
+
+const getRandomColor = () => {
+  let hexValue = [];
+  for (let i = 0; i < 6; i += 1) {
+    const index = Math.floor(Math.random() * colorValue.length);
+    hexValue.push(colorValue[index]);
+  }
+  return hexValue.join('');
+}
 
 //generating a random quote function
 const getRandomQuote = () => {
@@ -91,11 +116,8 @@ const printQuote = () => {
   function. So do not make any changes to the line of code below this 
   comment.
 ***/
-let newQuote;
-const changeQuote = () => {
-  newQuote = setInterval(printQuote, 20000);
-}
 
 
 
+button.addEventListener('click', randomBackgroundColor);
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
