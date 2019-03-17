@@ -5,43 +5,44 @@ project 1 - A Random Quote Generator
 
 
 /*** 
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-  Add the `citation` property to at least one object in the array.
-  Add the `year` property to at least one object in the array.
-  Use console.log() to log your array of quotes to the console.
+  Made a quotes array object that contain all the quotes,
+  That being display to the screen.
 ***/
 const quotes = [
   {
-    quote: 'Our imagination is the only limit to what we can hope to have in the future.',
-    source: 'Charles Kettering',
-    citation: 'FaceBook',
-    year: ''
+    quote: 'The fear of death follows from the fear of life. A man who lives fully is prepared to die at any time.',
+    source: 'Mark Twain',
+    citation: '',
+    year: '1910',
+    tags: 'Life'
   },
   {
-    quote: 'Alone we can do so little; together we can do so much',
-    source: 'Helen Keller',
+    quote: 'Life is 10% what happens to you and 90% how you react to it.',
+    source: 'Charles R. Swindoll',
     citation: '',
-    year: ''
+    year: '',
+    tags: 'Motivational'
   },
   {
     quote: 'Words can inspire, thoughts can provoke, but only action truly brings you closer to your dreams. ',
     source: 'Brad Sugars',
     citation: '',
-    year: ''
+    year: '',
+    tags: ''
   },
   {
-    quote: 'Quitters never win. Winners never quit!',
-    source: 'Dr. Irene C. Kassorla',
-    citation: '',
-    year: '2019'
+    quote: 'Winners never quit and quitters never win.',
+    source: 'Vince Lombardi',
+    citation: 'Brainy Quote',
+    year: '',
+    tags: ''
   },
   {
-    quote: '',
-    source: '',
+    quote: 'Be who you are and say what you feel, because those who mind don’t matter and those who matter don’t mind.',
+    source: 'Dr. Seuss',
     citation: '',
-    year: ''
+    year: '',
+    tags: 'Insparational'
   }
 ]
 const button = document.getElementById('loadQuote');
@@ -53,11 +54,14 @@ const changeQuote = () => {
   newQuote = setInterval(printQuote, 20000);
 }
 
-/*
+/*** 
 credits:
 https://www.youtube.com/watch?v=z4OyThVIr5U
-
-*/
+This function is definding a hex value (colorValue).
+Gets 6 random hex value from the array and builds a hex code 
+example : #82a43a for color green.
+and apply that to the background color when the button is clicked.
+***/
 const colorValue = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
 
 const randomBackgroundColor = () => {
@@ -95,7 +99,7 @@ const printQuote = () => {
   let html = '';
   html += `<p class="quote"> ${quote.quote} </p>`;
   html += `<p class="source"> ${quote.source} `;
-  //check to see if there a citation and year
+  //check to see if there a citation, year and tags
   //if so add it.
   if (quote.citation) {
     html += `<span class='citation'> ${quote.citation}<span>`;
@@ -103,12 +107,20 @@ const printQuote = () => {
   if (quote.year) {
     html += `<span class="year"> ${quote.year}</span>`;
   }
+  if (quote.tags) {
+    html += `<span class ="tags"> ${quote.tags} </span>`;
+  }
   html += `</p>`;
   //print the quote to screen.
   print(html);
 }
 
 
+/***
+  When the "Show another quote" button is clicked, 
+  it changes the background color at random.
+ ***/
+button.addEventListener('click', randomBackgroundColor);
 
 /***
   When the "Show another quote" button is clicked, the event listener 
@@ -117,7 +129,4 @@ const printQuote = () => {
   comment.
 ***/
 
-
-
-button.addEventListener('click', randomBackgroundColor);
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
