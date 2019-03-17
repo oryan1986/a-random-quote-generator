@@ -45,7 +45,7 @@ const quotes = [
     tags: 'Insparational'
   }
 ]
-const button = document.getElementById('loadQuote');
+
 let newQuote;
 
 
@@ -113,14 +113,9 @@ const printQuote = () => {
   html += `</p>`;
   //print the quote to screen.
   print(html);
+  randomBackgroundColor();
 }
 
-
-/***
-  When the "Show another quote" button is clicked, 
-  it changes the background color at random.
- ***/
-button.addEventListener('click', randomBackgroundColor);
 
 /***
   When the "Show another quote" button is clicked, the event listener 
